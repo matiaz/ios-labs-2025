@@ -1,4 +1,25 @@
 # Sprint 1 · Topic 1 — Accessibility & Inclusion  
+
+## 🎯 Demo App Overview
+
+This is a **simplified drawing app** designed to demonstrate **cognitive accessibility** principles for users with cognitive disabilities. The app showcases how to implement **iOS Assistive Access** integration and universal design practices.
+
+### What the App Does:
+- **Draw** → Pick a color, tap canvas to create dot patterns, save artwork
+- **Gallery** → View saved drawings, tap any item to see details
+
+### Accessibility Purpose:
+- **Assistive Access Ready** - Appears as "Optimized App" in iOS Assistive Access mode
+- **Cognitive Accessibility** - Demonstrates simplified UI with only 2 core actions
+- **Universal Design** - Benefits all users through clearer, more focused interface
+- **Step-by-step workflow** - Color selection isolated from drawing to reduce cognitive load
+- **Safe interactions** - Confirmation dialogs for destructive actions, no timeouts
+- **Large, clear controls** - Icon + text labels, explicit buttons (no hidden gestures)
+
+This serves as a **real-world example** of implementing Apple's WWDC 2025 accessibility guidelines for inclusive app design.
+
+---
+
 ## Assistive Access Implementation Notes & Example Use Cases
 
 ### 1) Choose your integration mode

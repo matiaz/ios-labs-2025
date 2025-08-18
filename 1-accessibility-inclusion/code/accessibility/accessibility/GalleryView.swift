@@ -21,16 +21,20 @@ struct GalleryView: View {
                 }
             } else {
                 ForEach(appState.drawings) { drawing in
-                    HStack(spacing: 12) {
-                        Circle()
-                            .fill(drawing.color.color)
-                            .frame(width: 24, height: 24)
-                            .accessibilityHidden(true)
+                    NavigationLink(destination: DrawingDetailView(drawing: drawing)) {
+                        HStack(spacing: 12) {
+                            Circle()
+                                .fill(drawing.color.color)
+                                .frame(width: 24, height: 24)
+                                .accessibilityHidden(true)
 
-                        Text("\(drawing.color.label) drawing")
-                            .font(.body)
+                            Text("\(drawing.color.label) drawing")
+                                .font(.body)
+                        }
+                        .padding(.vertical, 4)
                     }
-                    .padding(.vertical, 4)
+                    .accessibilityLabel(Text("View \(drawing.color.label.lowercased()) drawing"))
+                    .accessibilityHint(Text("Shows your saved drawing"))
                 }
             }
         }
