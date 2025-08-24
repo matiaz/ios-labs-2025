@@ -21,6 +21,9 @@ Latest SwiftUI updates, new UI components, and performance improvements from WWD
 
 ## Demo Project Proposal: "ModernUI Explorer"
 
+### 📹 Demo Video
+See the implemented demo in action: [swiftui and frameworks demo.mov](swiftui%20and%20frameworks%20demo.mov)
+
 A comprehensive SwiftUI demo app that showcases all the new WWDC 2025 features:
 
 ### Core Features:
