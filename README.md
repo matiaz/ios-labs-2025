@@ -17,8 +17,7 @@ Each topic includes:
 - [SwiftUI & UI Frameworks](1-swiftui-ui-frameworks/) – Latest SwiftUI updates, new UI components, and performance improvements.
 
 ### Sprint 2
-- [Privacy & Security](2-privacy-security/) – Latest privacy features, permission handling, and secure data storage best practices.
-- [App Services](2-app-services/) – Integration with Apple’s app services like CloudKit, Push Notifications, and in-app purchases.
+- [Foundation Models](2-foundation-models/) – Explore Apple’s new Foundation Models framework, including generative AI and on-device intelligence, with practical demos.
 
 ### Sprint 3
 - [Machine Learning & AI](3-machine-learning-ai/) – Core ML updates, on-device inference, and integrating AI-powered features.
@@ -48,6 +47,10 @@ Each topic includes:
 - [Safari & Web](9-safari-web/) – WKWebView improvements, WebKit updates, and web-to-app integrations.
 - [Essentials](9-essentials/) – Core iOS APIs, performance optimization, and must-know features.
 
+### Sprint 10
+- [Privacy & Security](10-privacy-security/) – Latest privacy features, permission handling, and secure data storage best practices.
+- [App Services](10-app-services/) – Integration with Apple’s app services like CloudKit, Push Notifications, and in-app purchases.
+
 ---
 
 ## 📂 Repository Structure
@@ -65,7 +68,7 @@ ios-labs-2025/
 │   ├── demo-app/
 │   └── README.md
 │
-├── 2-privacy-security/
+├── 2-foundation-models/
 │   ├── summary.md
 │   ├── demo-app/
 │   └── README.md
