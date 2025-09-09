@@ -20,8 +20,7 @@ Each topic includes:
 - [Foundation Models](2-foundation-models/) – Explore Apple’s new Foundation Models framework, including generative AI and on-device intelligence, with practical demos.
 
 ### Sprint 3
-- [Machine Learning & AI](3-machine-learning-ai/) – Core ML updates, on-device inference, and integrating AI-powered features.
-- [Photos & Camera](3-photos-camera/) – Using the latest Camera and PhotoKit APIs for richer media experiences.
+- [Apple's Vision Framework](3-vision-documents/) – Leverage VisionKit + Vision APIs for document understanding, text extraction, and structured data processing from invoices, IDs, and forms.
 
 ### Sprint 4
 - [Maps & Location](4-maps-location/) – MapKit enhancements, location services, and advanced geofencing features.
@@ -49,7 +48,11 @@ Each topic includes:
 
 ### Sprint 10
 - [Privacy & Security](10-privacy-security/) – Latest privacy features, permission handling, and secure data storage best practices.
-- [App Services](10-app-services/) – Integration with Apple’s app services like CloudKit, Push Notifications, and in-app purchases.
+- [App Services](10-app-services/) – Integration with Apple's app services like CloudKit, Push Notifications, and in-app purchases.
+
+### Sprint 11
+- [Machine Learning & AI](11-machine-learning-ai/) – Core ML updates, on-device inference, and integrating AI-powered features.
+- [Photos & Camera](11-photos-camera/) – Using the latest Camera and PhotoKit APIs for richer media experiences.
 
 ---
 
