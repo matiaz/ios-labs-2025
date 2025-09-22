@@ -12,6 +12,7 @@ enum DocumentType: String, CaseIterable {
     case driversLicense = "Driver's License"
     case nationalID = "National ID"
     case passport = "Passport"
+    case usDLCode = "US DL Code"
 
     var icon: String {
         switch self {
@@ -21,8 +22,24 @@ enum DocumentType: String, CaseIterable {
             return "person.text.rectangle.fill"
         case .passport:
             return "book.fill"
+        case .usDLCode:
+            return "barcode.viewfinder"
         }
     }
+
+    var scanningMethod: ScanningMethod {
+        switch self {
+        case .driversLicense, .nationalID, .passport:
+            return .textRecognition
+        case .usDLCode:
+            return .barcodeDetection
+        }
+    }
+}
+
+enum ScanningMethod {
+    case textRecognition
+    case barcodeDetection
 }
 
 struct PersonalDocument {

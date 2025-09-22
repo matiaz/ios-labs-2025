@@ -24,7 +24,7 @@ struct IDParser {
             (fullName, dateOfBirth, documentNumber, expirationDate, issuingAuthority, gender) = parseDriversLicense(text: text, strings: recognizedStrings)
         case .nationalID:
             (fullName, dateOfBirth, documentNumber, expirationDate, issuingAuthority, gender) = parseNationalID(text: text, strings: recognizedStrings)
-        case .passport:
+        case .passport, .usDLCode:
             return nil
         }
 

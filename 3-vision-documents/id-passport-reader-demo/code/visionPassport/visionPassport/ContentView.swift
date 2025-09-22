@@ -30,7 +30,11 @@ struct ContentView: View {
                     SecurityWarningView(dataManager: dataManager)
 
                 case .documentCapture:
-                    DocumentCameraWrapperView(dataManager: dataManager, documentType: dataManager.selectedDocumentType)
+                    if dataManager.selectedDocumentType.scanningMethod == .barcodeDetection {
+                        BarcodeCameraWrapperView(dataManager: dataManager, documentType: dataManager.selectedDocumentType)
+                    } else {
+                        DocumentCameraWrapperView(dataManager: dataManager, documentType: dataManager.selectedDocumentType)
+                    }
 
                 case .processing:
                     ProcessingView()

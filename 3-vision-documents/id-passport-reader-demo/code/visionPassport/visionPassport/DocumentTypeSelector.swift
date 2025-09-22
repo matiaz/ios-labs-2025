@@ -142,6 +142,16 @@ struct DocumentTypeSelector: View {
                 "Nationality",
                 "Issuing Country"
             ]
+        case .usDLCode:
+            return [
+                "Full Name",
+                "License Number",
+                "Date of Birth",
+                "Expiration Date",
+                "Address",
+                "Gender",
+                "Issuing State"
+            ]
         }
     }
 }
@@ -192,6 +202,8 @@ struct DocumentTypeCard: View {
             return "Government ID Cards"
         case .passport:
             return "International Passports"
+        case .usDLCode:
+            return "PDF417 Barcode"
         }
     }
 }

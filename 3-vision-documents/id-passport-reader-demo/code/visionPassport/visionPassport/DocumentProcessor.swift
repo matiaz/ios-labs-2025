@@ -30,6 +30,15 @@ class DocumentProcessor {
             return
         }
 
+        switch documentType.scanningMethod {
+        case .textRecognition:
+            processTextRecognition(cgImage: cgImage, documentType: documentType, startTime: startTime, completion: completion)
+        case .barcodeDetection:
+            processBarcodeDetection(cgImage: cgImage, documentType: documentType, startTime: startTime, completion: completion)
+        }
+    }
+
+    private func processTextRecognition(cgImage: CGImage, documentType: DocumentType, startTime: Date, completion: @escaping (DocumentProcessingResult) -> Void) {
         let request = VNRecognizeTextRequest { [weak self] request, error in
             guard let self = self else { return }
 
@@ -98,12 +107,85 @@ class DocumentProcessor {
         }
     }
 
+    private func processBarcodeDetection(cgImage: CGImage, documentType: DocumentType, startTime: Date, completion: @escaping (DocumentProcessingResult) -> Void) {
+        let request = VNDetectBarcodesRequest { [weak self] request, error in
+            guard let self = self else { return }
+
+            if let error = error {
+                let result = DocumentProcessingResult(
+                    document: nil,
+                    confidence: 0.0,
+                    processingTime: Date().timeIntervalSince(startTime),
+                    errors: [.textRecognitionFailed]
+                )
+                completion(result)
+                return
+            }
+
+            guard let observations = request.results as? [VNBarcodeObservation],
+                  let barcodeObservation = observations.first,
+                  let barcodeString = barcodeObservation.payloadStringValue else {
+                let result = DocumentProcessingResult(
+                    document: nil,
+                    confidence: 0.0,
+                    processingTime: Date().timeIntervalSince(startTime),
+                    errors: [.documentNotDetected]
+                )
+                completion(result)
+                return
+            }
+
+            DispatchQueue.main.async {
+                let document = self.parseBarcodeDocument(from: barcodeString, documentType: documentType)
+                let confidence = barcodeObservation.confidence
+                let result = DocumentProcessingResult(
+                    document: document,
+                    confidence: confidence,
+                    processingTime: Date().timeIntervalSince(startTime),
+                    errors: document == nil ? [.invalidDocumentFormat] : []
+                )
+                completion(result)
+            }
+        }
+
+        request.symbologies = [.pdf417]
+
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                try handler.perform([request])
+            } catch {
+                DispatchQueue.main.async {
+                    let result = DocumentProcessingResult(
+                        document: nil,
+                        confidence: 0.0,
+                        processingTime: Date().timeIntervalSince(startTime),
+                        errors: [.textRecognitionFailed]
+                    )
+                    completion(result)
+                }
+            }
+        }
+    }
+
     private func parseDocument(from strings: [String], documentType: DocumentType) -> PersonalDocument? {
         switch documentType {
         case .passport:
             return PassportParser.parsePassport(from: strings)
         case .driversLicense, .nationalID:
             return IDParser.parseID(from: strings, documentType: documentType)
+        case .usDLCode:
+            return nil
+        }
+    }
+
+    private func parseBarcodeDocument(from barcodeString: String, documentType: DocumentType) -> PersonalDocument? {
+        switch documentType {
+        case .usDLCode:
+            return PDF417Parser.parseUSDriversLicense(from: barcodeString)
+        case .passport, .driversLicense, .nationalID:
+            return nil
         }
     }
 
