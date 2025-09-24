@@ -23,8 +23,7 @@ Each topic includes:
 - [Apple's Vision Framework](3-vision-documents/) – Leverage VisionKit + Vision APIs for document understanding, text extraction, and structured data processing from invoices, IDs, and forms.
 
 ### Sprint 4
-- [Maps & Location](4-maps-location/) – MapKit enhancements, location services, and advanced geofencing features.
-- [Audio & Video](4-audio-video/) – AVFoundation updates, spatial audio, and optimized media playback.
+- [App Clips](4-app-clips/) – Exploring App Clips and their multiple entry points, including URL invocation, QR codes, NFC, Safari banners, Maps, and Messages integration.
 
 ### Sprint 5
 - [Design](5-design/) – Human Interface Guidelines updates, SF Symbols, and motion design trends.
@@ -53,6 +52,10 @@ Each topic includes:
 ### Sprint 11
 - [Machine Learning & AI](11-machine-learning-ai/) – Core ML updates, on-device inference, and integrating AI-powered features.
 - [Photos & Camera](11-photos-camera/) – Using the latest Camera and PhotoKit APIs for richer media experiences.
+
+### Sprint 12
+- [Maps & Location](12-maps-location/) – MapKit enhancements, location services, and advanced geofencing features.
+- [Audio & Video](12-audio-video/) – AVFoundation updates, spatial audio, and optimized media playback.
 
 ---
 
